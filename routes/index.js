@@ -1,9 +1,8 @@
 import { Router } from "express";
-import { getStockByCity, postStock } from "../controllers";
+import { getStockByCity } from "../controllers/index.js";
 
 const router = Router();
 
-router("/:city", getStockByCity);
-router.post("/", postStock);
+router.get("/:city", getStockByCity);
 
 export default router;

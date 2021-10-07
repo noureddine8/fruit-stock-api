@@ -1,13 +1,12 @@
-import { Schema, model } from "mongoose";
-import { fruits } from "../utils/constants";
+import mongoose from "mongoose";
+import { fruits } from "../utils/constants.js";
 
-const stockSchema = new Schema(
+const { Schema } = mongoose;
+
+export const stockSchema = new Schema(
   {
-    item: { type: String, enum: fruits, required: true, unique: true },
+    item: { type: String, enum: fruits, required: true },
     quantity: { type: Number, required: true },
   },
   { timestamps: true }
 );
-
-const Stock = model("Stock", stockSchema);
-export default Stock;

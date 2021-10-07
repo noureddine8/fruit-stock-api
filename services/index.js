@@ -1,15 +1,20 @@
-import Stock from "../models/stock";
+import Store from "../models/store.js";
+import { initialData } from "../utils/initialData.js";
 
 export const retrieveStockByCity = async (city) => {
   try {
-    return await Stock.findOne({ city });
+    return await Store.findOne({ city });
   } catch (error) {
     throw new Error(error.message);
   }
 };
-export const insertStock = async (stock) => {
+export const insertInitialData = async () => {
   try {
-    return await Stock.create(stock);
+    const stores = await Store.find({});
+    if (stores.length == 0) {
+      return await Store.insertMany(initialData);
+    }
+    return;
   } catch (error) {
     throw new Error(error.message);
   }

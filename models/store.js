@@ -1,11 +1,13 @@
-import { Schema, model } from "mongoose";
-import { cities } from "../utils/constants";
-import Stock from "./stock";
+import mongoose from "mongoose";
+import { cities } from "../utils/constants.js";
+import { stockSchema } from "./stock.js";
+
+const { Schema, model } = mongoose;
 
 const storeSchema = new Schema(
   {
     city: { type: String, enum: cities, required: true, unique: true },
-    stocks: [Stock],
+    stocks: [stockSchema],
   },
   { timestamps: true }
 );
