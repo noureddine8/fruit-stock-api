@@ -4,7 +4,7 @@ import Stock from "./stock";
 
 const storeSchema = new Schema(
   {
-    city: { type: String, enum: cities, required: true },
+    city: { type: String, enum: cities, required: true, unique: true },
     stocks: [Stock],
   },
   { timestamps: true }

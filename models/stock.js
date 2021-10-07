@@ -3,7 +3,7 @@ import { fruits } from "../utils/constants";
 
 const stockSchema = new Schema(
   {
-    item: { type: String, enum: fruits, required: true },
+    item: { type: String, enum: fruits, required: true, unique: true },
     quantity: { type: Number, required: true },
   },
   { timestamps: true }
