@@ -7,3 +7,10 @@ export const retrieveStockByCity = async (city) => {
     throw new Error(error.message);
   }
 };
+export const insertStock = async (stock) => {
+  try {
+    return await Stock.create(stock);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
