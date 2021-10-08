@@ -15,8 +15,7 @@ export const putItemQuantity = async (req, res) => {
   const { quantity } = req.body;
   try {
     const store = await retrieveStockByCity(senderCity);
-    const stock = store.stocks.filter((element) => element.item === item)[0];
-
+    const stock = store.stocks.find((element) => element.item === item);
     if (stock.quantity < quantity) {
       res.status(400).json({ message: "You don't have enough quantity" });
     } else {
