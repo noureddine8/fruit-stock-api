@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import stockRouter from "./routes/index.js";
 import config from "config";
 import { hostname, port } from "./utils/constants.js";
@@ -7,7 +8,7 @@ import { insertInitialData } from "./services/index.js";
 
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 app.use("/stock", stockRouter);
 
 mongoose
